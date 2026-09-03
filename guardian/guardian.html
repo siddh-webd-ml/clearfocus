@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardian Dashboard | ClearFocus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guardian.css">
+</head>
+<body>
+  <div class="background-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <main class="dashboard-container">
+    <header class="header">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="url(#grad)" stroke-width="2" fill="none"/>
+          <circle cx="14" cy="14" r="6" fill="url(#grad)" opacity="0.8"/>
+          <circle cx="14" cy="14" r="2.5" fill="#E0E7FF"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="28" y2="28">
+              <stop offset="0%" stop-color="#7C3AED"/>
+              <stop offset="100%" stop-color="#3B82F6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <h1>ClearFocus <span>Guardian</span></h1>
+      </div>
+      <div class="status-badge" id="systemStatus">
+        <span class="dot"></span> System Protected
+      </div>
+    </header>
+
+    <div class="content-grid">
+      <!-- Left Column: Notifications/Requests -->
+      <section class="card requests-card">
+        <div class="card-header">
+          <h2>Active Requests</h2>
+          <span class="count-badge" id="requestCount">0</span>
+        </div>
+        
+        <div id="noRequests" class="empty-state">
+          <div class="icon">✨</div>
+          <p>No pending deactivation requests.</p>
+        </div>
+
+        <div id="requestList" class="request-list hidden">
+          <!-- Request items will be injected here -->
+        </div>
+      </section>
+
+      <!-- Right Column: Settings & Overview -->
+      <aside class="side-controls">
+        <section class="card stats-card">
+          <h3>Session Overview</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Focus State</span>
+              <span class="stat-value" id="currentFocusState">Active</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Current Goal</span>
+              <span class="stat-value truncate" id="currentGoal">React Development</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card actions-card">
+          <h3>Quick Actions</h3>
+          <div class="action-buttons">
+            <button class="btn btn-secondary" id="forceStopBtn">Force Stop Session</button>
+            <button class="btn btn-danger" id="resetConfigBtn">Reset All Settings</button>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <div id="passwordOverlay" class="overlay">
+    <div class="overlay-content">
+      <h2>Guardian Access</h2>
+      <p>Please enter your password to continue.</p>
+      <input type="password" id="guardianPass" placeholder="••••••••" class="pass-input">
+      <button class="btn btn-primary" id="loginBtn">Unlock Dashboard</button>
+      <p id="errorMsg" class="error-text hidden">Incorrect password.</p>
+    </div>
+  </div>
+
+  <script src="guardian.js"></script>
+</body>
+</html>

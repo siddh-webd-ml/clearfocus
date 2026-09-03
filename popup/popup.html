@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearFocus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="url(#grad)" stroke-width="2" fill="none"/>
+          <circle cx="14" cy="14" r="6" fill="url(#grad)" opacity="0.8"/>
+          <circle cx="14" cy="14" r="2.5" fill="#E0E7FF"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="28" y2="28">
+              <stop offset="0%" stop-color="#7C3AED"/>
+              <stop offset="100%" stop-color="#3B82F6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>ClearFocus</h1>
+        <p class="subtitle">Stay in your flow</p>
+      </div>
+      <div class="status-dot" id="statusDot" title="Inactive"></div>
+    </header>
+
+    <!-- Intent Input -->
+    <section class="section">
+      <label class="label" for="intentInput">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        What are you focusing on?
+      </label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="intentInput"
+          class="input"
+          placeholder="e.g., Python, React, DSA (separate with commas)"
+          spellcheck="false"
+          autocomplete="off"
+        />
+        <button class="input-clear" id="clearIntent" title="Clear">×</button>
+      </div>
+      <div class="intents-chips" id="intentsChips"></div>
+    </section>
+
+    <!-- Focus Toggle -->
+    <section class="section toggle-section">
+      <div class="toggle-info">
+        <span class="toggle-label">Focus Mode</span>
+        <span class="toggle-status" id="toggleStatus">Off</span>
+      </div>
+      <button class="toggle-btn" id="focusToggle" role="switch" aria-checked="false">
+        <span class="toggle-knob"></span>
+      </button>
+    </section>
+
+    <!-- Focus Timer -->
+    <section class="section timer-section" id="timerSection">
+      <label class="label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        Focus Timer
+      </label>
+
+      <!-- Circular Timer Ring -->
+      <div class="timer-display">
+        <svg class="timer-ring" viewBox="0 0 120 120">
+          <circle class="timer-ring-bg" cx="60" cy="60" r="52" />
+          <circle class="timer-ring-progress" id="timerProgress" cx="60" cy="60" r="52" />
+        </svg>
+        <div class="timer-time" id="timerTime">25:00</div>
+        <div class="timer-label" id="timerLabel">Ready</div>
+      </div>
+
+      <!-- Duration Presets -->
+      <div class="timer-presets">
+        <button class="timer-preset" data-minutes="15">15m</button>
+        <button class="timer-preset active" data-minutes="25">25m</button>
+        <button class="timer-preset" data-minutes="45">45m</button>
+        <button class="timer-preset" data-minutes="60">60m</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>ClearFocus v1.0</span>
+      <button class="footer-link" id="analyticsBtn" title="View analytics">📊 Analytics</button>
+      <button class="footer-link" id="settingsBtn" title="Settings">⚙️ Settings</button>
+      <button class="footer-link" id="rescanBtn" title="Re-scan current page">⟳ Rescan</button>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="settings-modal hidden">
+      <div class="settings-content">
+        <div class="settings-header">
+          <h2>Settings</h2>
+          <button class="settings-close" id="closeSettings">×</button>
+        </div>
+        
+        <div class="settings-section">
+          <label for="apiKeyInput" class="label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 2H3a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+              <polyline points="7 2 7 22"/>
+              <line x1="11" y1="5" x2="17" y2="5"/>
+              <line x1="11" y1="10" x2="17" y2="10"/>
+              <line x1="11" y1="15" x2="17" y2="15"/>
+            </svg>
+            Gemini API Key (Optional)
+          </label>
+          <p class="help-text">Get your free API key from <a href="https://ai.google.dev" target="_blank">ai.google.dev</a></p>
+          <input 
+            type="password" 
+            id="apiKeyInput" 
+            class="input" 
+            placeholder="sk_live_..." 
+            spellcheck="false"
+            autocomplete="off"
+          />
+          <div class="api-status">
+            <span id="apiStatus">No API key configured</span>
+          </div>
+          <button id="saveApiKeyBtn" class="btn-primary">Save API Key</button>
+          <button id="clearApiKeyBtn" class="btn-secondary">Clear API Key</button>
+        </div>
+
+        <div class="settings-section">
+          <label class="label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Parental Controls
+          </label>
+          <div class="setting-item">
+            <span>Enable Guardian Mode</span>
+            <button class="toggle-btn sm" id="guardianToggle" role="switch" aria-checked="false">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+          <div id="guardianConfig" class="hidden">
+            <p class="help-text">Prevents turning off focus mode without approval.</p>
+            <input 
+              type="password" 
+              id="guardianPasswordInput" 
+              class="input mt-8" 
+              placeholder="Set Guardian Password" 
+              spellcheck="false"
+            />
+            <button id="saveGuardianBtn" class="btn-primary mt-8">Save Guardian Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

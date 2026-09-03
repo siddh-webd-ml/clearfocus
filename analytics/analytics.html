@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearFocus Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="analytics.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <button class="back-btn" id="backBtn" title="Back to popup">← Back</button>
+        <h1>📊 Analytics</h1>
+      </div>
+      <button class="export-btn" id="exportBtn" title="Export as CSV">⬇ Export</button>
+    </header>
+
+    <!-- Today's Summary -->
+    <section class="card">
+      <h2>Today</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Focus Time</div>
+          <div class="stat-value" id="todayFocusTime">0h 0m</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Sessions</div>
+          <div class="stat-value" id="todaySessionCount">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Items Filtered</div>
+          <div class="stat-value" id="todayFiltered">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weekly Summary -->
+    <section class="card">
+      <h2>This Week</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Focus</div>
+          <div class="stat-value" id="weekFocusTime">0h 0m</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg/Day</div>
+          <div class="stat-value" id="weekAvgPerDay">0m</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Days Active</div>
+          <div class="stat-value" id="weekDaysActive">0</div>
+        </div>
+      </div>
+
+      <!-- Weekly Chart -->
+      <div class="chart-container">
+        <canvas id="weekChart" width="300" height="150"></canvas>
+      </div>
+    </section>
+
+    <!-- Session History -->
+    <section class="card">
+      <h2>Session History (Last 7 Days)</h2>
+      <div class="sessions-list" id="sessionsList">
+        <p class="empty-state">No sessions recorded yet. Start focusing!</p>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section class="card">
+      <h2>Data Management</h2>
+      <div class="action-buttons">
+        <button class="btn-secondary" id="clearDataBtn">Clear All Data</button>
+        <button class="btn-secondary" id="deleteWeekBtn">Delete Older than 7 Days</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="analytics.js"></script>
+</body>
+</html>
