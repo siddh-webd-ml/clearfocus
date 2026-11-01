@@ -214,7 +214,3 @@ Viewing this repository does not grant a general license to reuse its contents.
 For licensing or collaboration enquiries, please contact the repository owner.
 
 ---
-
-\<p align="center">
-&#x20; \<strong>Built with purpose. Designed for focus. 🧠\</strong>
-\</p>
