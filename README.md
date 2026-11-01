@@ -187,13 +187,17 @@ ClearFocus aims to make the internet a more intentional place to work, study and
 
 **Siddh Agrawal**
 
-Sarthak Mavar
+**Sarthak mavar**
+
+**Prakhar Godha**
 
 Creator & Developer of ClearFocus.
 
 GitHub: [@siddh-webd-ml](https://github.com/siddh-webd-ml)
 
 Github: [@MavarSarthak](https://github.com/MavarSarthak)
+
+Github: [@Prakhargodha](https://github.com/prakharxcodes)
 
 
 ---
