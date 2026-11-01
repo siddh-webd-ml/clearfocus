@@ -4,14 +4,6 @@
 &#x20; \<strong>An intelligent browser extension designed to reduce digital distractions and help you stay focused.\</strong>
 \</p>
 
-\<p align="center">
-&#x20; \<img src="[https://img.shields.io/badge/Project-ClearFocus-blueviolet](https://img.shields.io/badge/Project-ClearFocus-blueviolet)" />
-&#x20; \<img src="[https://img.shields.io/badge/Platform-Chrome%20Extension-blue](https://img.shields.io/badge/Platform-Chrome%20Extension-blue)" />
-&#x20; \<img src="[https://img.shields.io/badge/AI-Gemini-orange](https://img.shields.io/badge/AI-Gemini-orange)" />
-&#x20; \<img src="[https://img.shields.io/badge/License-All%20Rights%20Reserved-red](https://img.shields.io/badge/License-All%20Rights%20Reserved-red)" />
-\</p>
-
----
 
 ## 🚀 About ClearFocus
 
