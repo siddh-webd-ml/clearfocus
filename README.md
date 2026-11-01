@@ -193,7 +193,8 @@ Creator & Developer of ClearFocus.
 
 GitHub: [@siddh-webd-ml](https://github.com/siddh-webd-ml)
 
-Github: @MavarSarthak
+Github: [@MavarSarthak](https://github.com/MavarSarthak)
+
 
 ---
 
