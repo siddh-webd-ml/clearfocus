@@ -1,9 +1,5 @@
 # 🧠 ClearFocus — Take Back Control of Your Attention
 
-\<p align="center">
-&#x20; \<strong>An intelligent browser extension designed to reduce digital distractions and help you stay focused.\</strong>
-\</p>
-
 
 ## 🚀 About ClearFocus
 
